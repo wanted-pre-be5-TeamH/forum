@@ -2,7 +2,7 @@ name: 'Test'
 
 on:
   push:
-    branches: [ _main ]
+    branches: [ main ]
     
 jobs:            
   deploy_coverage:
@@ -56,8 +56,8 @@ jobs:
         uses: schneegans/dynamic-badges-action@v1.5.0
         with:
           auth: ${{ secrets.GIST_SECRET }}
-          gistID: 3a0a89382b72d637e952daf28d0946e3
-          filename: ${{ secrets.GIST_FILENAME }}
+          gistID: e9d685dac7c70dfad1305ce9d8174a29
+          filename: coverage_forum.json
           label: coverage
           message: ${{ steps.coverageComment.outputs.coverage }}%
           color: ${{ steps.coverageComment.outputs.color }}

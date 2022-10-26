@@ -28,11 +28,11 @@ describe('User API e2e test', () => {
   // const bodys: CreateUserBody[] = [];
 
   describe('POST /user', () => {
-    it.each([])('잘못된 사용자 생성 요청', async () => {
+    it('잘못된 사용자 생성 요청', async () => {
       return;
     });
 
-    it.each([])('올바른 사용자 생성 요청', async () => {
+    it('올바른 사용자 생성 요청', async () => {
       return;
     });
   });
@@ -46,7 +46,7 @@ describe('User API e2e test', () => {
       return;
     });
 
-    it.each([])('존재하는 사용자 조회', async () => {
+    it('존재하는 사용자 조회', async () => {
       return;
     });
   });
