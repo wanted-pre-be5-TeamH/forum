@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for domain/user.aggregate.ts</title>
+    <title>Code coverage report for auth/infrastructure/strategy/local.strategy.ts</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../prettify.css" />
-    <link rel="stylesheet" href="../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../sort-arrow-sprite.png);
+            background-image: url(../../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">domain</a> user.aggregate.ts</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">auth/infrastructure/strategy</a> local.strategy.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">22.22% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/9</span>
+                <span class='fraction'>0/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">22.22% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/9</span>
+                <span class='fraction'>0/10</span>
             </div>
         
             
@@ -85,19 +85,8 @@
 <a name='L20'></a><a href='#L20'>20</a>
 <a name='L21'></a><a href='#L21'>21</a>
 <a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L23'></a><a href='#L23'>23</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -109,30 +98,35 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { BaseAggregate } from 'src/api/common/model/aggregate.base';
-import { IUser, IUserId, IUserProps, IUserResponse } from './user.interface';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import {</span>
+  IStrategyOptions,
+  IStrategyOptionsWithRequest,
+  Strategy,
+} from 'passport-local';
+<span class="cstat-no" title="statement not covered" >import { Injectable } from '@nestjs/common';</span>
+<span class="cstat-no" title="statement not covered" >import { AuthService } from '../../application/auth.service';</span>
+<span class="cstat-no" title="statement not covered" >import { PassportStrategy } from '@nestjs/passport';</span>
+import { IAuthResponse } from '../../domain/auth.interface';
 &nbsp;
-export class User extends BaseAggregate&lt;IUserId&gt; implements IUser {
-<span class="fstat-no" title="function not covered" >  private constructor(</span>
-    id: IUserId,
-    readonly <span class="cstat-no" title="statement not covered" >username: string,</span>
-    created_at: Date,
-    updated_at: Date,
-  ) {
-<span class="cstat-no" title="statement not covered" >    super(id, created_at, updated_at);</span>
+@Injectable()
+export <span class="cstat-no" title="statement not covered" >class <span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >LocalStrategy </span>extends PassportStrategy(Strategy) {</span></span>
+<span class="fstat-no" title="function not covered" >  constructor(private readonly <span class="cstat-no" title="statement not covered" >a</span>uthService: A</span>uthService) {
+    const option: IStrategyOptions | IStrategyOptionsWithRequest = <span class="cstat-no" title="statement not covered" >{};</span>
+<span class="cstat-no" title="statement not covered" >    super(option);</span>
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  static </span>get(props: IUserProps): IUser {
-    const { id, username, created_at, updated_at } = <span class="cstat-no" title="statement not covered" >props;</span>
-    const now = <span class="cstat-no" title="statement not covered" >new Date();</span>
-<span class="cstat-no" title="statement not covered" >    return new User(id ?? 0, username, created_at ?? now, updated_at ?? now);</span>
-  }
-&nbsp;
-<span class="fstat-no" title="function not covered" >  getResponse(</span>): IUserResponse {
-    const { id, username } = <span class="cstat-no" title="statement not covered" >this;</span>
-<span class="cstat-no" title="statement not covered" >    return { id, username };</span>
+<span class="fstat-no" title="function not covered" >  async </span>validate(username: string, password: string): Promise&lt;IAuthResponse&gt; {
+    const auth = <span class="cstat-no" title="statement not covered" >await this.authService.validate({ username, password });</span>
+<span class="cstat-no" title="statement not covered" >    return auth.getResponse();</span>
   }
 }
 &nbsp;</pre></td></tr></table></pre>
@@ -142,16 +136,16 @@ export class User extends BaseAggregate&lt;IUserId&gt; implements IUser {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-10-26T17:39:46.201Z
+                at 2022-10-28T07:59:50.512Z
             </div>
-        <script src="../prettify.js"></script>
+        <script src="../../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../sorter.js"></script>
-        <script src="../block-navigation.js"></script>
+        <script src="../../../sorter.js"></script>
+        <script src="../../../block-navigation.js"></script>
     </body>
 </html>
     
