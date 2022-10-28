@@ -1,7 +1,9 @@
-import { BaseAggregate } from 'src/api/common/model/aggregate.base';
-import { IUserId, IUserProperty } from '../domain/user.interface';
+import { IUserProperty } from '../domain/user.interface';
 
-export type CreateUserDTO = Omit<IUserProperty, keyof BaseAggregate<IUserId>>;
+export type CreateUserDTO = Pick<
+  IUserProperty,
+  'username' | 'phone' | 'birth_year' | 'gender'
+> & { readonly password: string };
 
 export type FindOneUserDTO = Pick<IUserProperty, 'id'>;
 
