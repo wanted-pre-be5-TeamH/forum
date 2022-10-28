@@ -2,6 +2,7 @@ import { BaseAggregate } from 'src/api/common/model/aggregate.base';
 import * as bcrypt from 'bcrypt';
 import { IAuth, IAuthId, IAuthProps, IAuthResponse } from './auth.interface';
 import { CookieOptions } from 'express';
+import { UserRole } from 'src/api/user/domain/user.enum';
 
 export class Auth extends BaseAggregate<IAuthId> implements IAuth {
   private constructor(
@@ -9,6 +10,7 @@ export class Auth extends BaseAggregate<IAuthId> implements IAuth {
     readonly username: string,
     readonly password: string,
     readonly accessed_at: Date,
+    readonly role: UserRole,
     created_at: Date,
     updated_at: Date,
   ) {
@@ -16,7 +18,7 @@ export class Auth extends BaseAggregate<IAuthId> implements IAuth {
   }
 
   static getJwtConfig(): CookieOptions {
-    return {
+    const option: CookieOptions = {
       // maxAge?: number | undefined;
       // signed?: boolean | undefined;
       // expires?: Date | undefined;
@@ -27,32 +29,48 @@ export class Auth extends BaseAggregate<IAuthId> implements IAuth {
       // encode?: ((val: string) => string) | undefined;
       // sameSite?: boolean | 'lax' | 'strict' | 'none' | undefined;
     };
+    return option;
   }
 
   static getCookieName() {
     return 'access_token';
   }
 
+  static checkPermission(role: UserRole, roles: UserRole[]): boolean {
+    return roles.reduce((prev, curr) => {
+      const now = role === curr;
+      return now ? now : prev;
+    }, false);
+  }
+
   static get(props: IAuthProps): IAuth {
-    const { id, username, password, accessed_at, created_at, updated_at } =
-      props;
+    const {
+      id,
+      username,
+      password,
+      accessed_at,
+      role,
+      created_at,
+      updated_at,
+    } = props;
     const now = new Date();
     return new Auth(
       id ?? 0,
       username,
       password,
       accessed_at,
+      role,
       created_at ?? now,
       updated_at ?? now,
     );
   }
 
   getResponse(): IAuthResponse {
-    const { id, username, accessed_at } = this;
-    return { id, username, accessed_at };
+    const { id, username, accessed_at, role } = this;
+    return { id, username, accessed_at, role };
   }
 
-  authenticte(password: string): Promise<boolean> {
+  authenticate(password: string): Promise<boolean> {
     return bcrypt.compare(password, this.password);
   }
 

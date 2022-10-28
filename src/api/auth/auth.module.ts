@@ -1,3 +1,4 @@
+import { RolesGuard } from './infrastructure/guard/role.guard';
 import { JwtAuthGuard } from './infrastructure/guard/jwt.guard';
 import { ConfigService } from '@nestjs/config';
 import { Module } from '@nestjs/common';
@@ -35,9 +36,14 @@ import { AuthRepository } from './infrastructure/auth.repository';
     JwtStrategy,
     {
       provide: APP_GUARD,
-      useClass: JwtAuthGuard,
+      useClass: JwtAuthGuard, // 먼저 적용된다.
+    },
+    {
+      provide: APP_GUARD,
+      useClass: RolesGuard,
     },
   ],
   controllers: [AuthController],
+  exports: [AuthService],
 })
 export class AuthModule {}

@@ -7,13 +7,21 @@ import { IAuth } from '../domain/auth.interface';
 @Injectable()
 export class AuthMapper implements IEntityMapper<IAuth, UserEntity> {
   toAggregate(entity: UserEntity): IAuth {
-    const { id, username, password, accessed_at, created_at, updated_at } =
-      entity;
+    const {
+      id,
+      username,
+      password,
+      accessed_at,
+      role,
+      created_at,
+      updated_at,
+    } = entity;
     return Auth.get({
       id,
       username,
       password,
       accessed_at,
+      role,
       created_at,
       updated_at,
     });

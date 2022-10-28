@@ -23,7 +23,7 @@ export class AuthService {
 
   async validate({ username, password }: ValidateUserDTO): Promise<IAuth> {
     const auth = await this.findOne({ username });
-    const authentication = await auth.authenticte(password);
+    const authentication = await auth.authenticate(password);
     if (authentication) {
       return auth;
     }
