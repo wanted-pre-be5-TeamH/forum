@@ -8,11 +8,11 @@ import {
   CreateUserDTO,
   FindOneUserDTO,
   RemoveUserDTO,
+  SetRoleDTO,
 } from './user.service.dto';
 import { httpExceptionProvider } from 'src/api/common/provider/exception.provider';
 import { ExceptionMessage } from 'src/api/common/provider/message.provider';
 import { UserErrorMessage } from '../infrastructure/user.entity';
-import { UserRole } from '../domain/user.enum';
 
 @Injectable()
 export class UserService {
@@ -21,8 +21,8 @@ export class UserService {
     private readonly userRepository: IUserRepository,
   ) {}
 
-  private encrypt(password: string): Promise<string> {
-    return bcrypt.hash(password, 30);
+  private encrypt(password: string): Promise<string> | string {
+    return bcrypt.hash(password, 10);
   }
 
   private async duplicateCheck(username: string): Promise<void> {
@@ -58,7 +58,7 @@ export class UserService {
     return this.userRepository.findMany();
   }
 
-  async setRole(id: number, role: UserRole): Promise<IUser> {
+  async setRole({ role, id }: SetRoleDTO): Promise<IUser> {
     const user = await this.findOne({ id });
     user.setRole(role);
     return this.userRepository.save(user);

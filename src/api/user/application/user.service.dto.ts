@@ -7,4 +7,6 @@ export type CreateUserDTO = Pick<
 
 export type FindOneUserDTO = Pick<IUserProperty, 'id'>;
 
+export type SetRoleDTO = Pick<IUserProperty, 'id' | 'role'>;
+
 export type RemoveUserDTO = Pick<IUserProperty, 'id'>;
