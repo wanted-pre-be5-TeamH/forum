@@ -1,4 +1,4 @@
-import { Controller, Get, Res, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Res, UseGuards } from '@nestjs/common';
 import { Response } from 'express';
 import { Auth } from '../domain/auth.aggregate';
 import { AuthGuard } from '@nestjs/passport';
@@ -13,7 +13,7 @@ export class AuthController {
 
   @Public()
   @UseGuards(AuthGuard('local'))
-  @Get('sign-in')
+  @Post('sign-in')
   signin(
     @AuthUser() { id }: IAuthResponse,
     @Res({ passthrough: true }) res: Response,
