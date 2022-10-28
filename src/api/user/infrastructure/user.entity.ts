@@ -1,14 +1,6 @@
 import { TypeOrmBaseEntity } from 'src/api/common/model/typeorm-entity.base';
 import { Column, CreateDateColumn, Entity } from 'typeorm';
-import {
-  IsDate,
-  IsEnum,
-  IsNumber,
-  IsString,
-  Matches,
-  Max,
-  Min,
-} from 'class-validator';
+import { IsDate, IsEnum, IsNumber, IsString } from 'class-validator';
 import { Type } from 'class-transformer';
 import { UserGender, UserRole } from '../domain/user.enum';
 import { ExceptionMessage } from 'src/api/common/provider/message.provider';
@@ -20,6 +12,7 @@ export const UserErrorMessage = {
   role: `사용자 권한에 ${ExceptionMessage.WRD}`,
   gender: `성별에 ${ExceptionMessage.WRD}`,
   birth: '네자리 연도를 입력하세요.',
+  phone: '전화번호는 010-0000-0000 형식입니다.',
 };
 
 @Entity({ name: 'users' })
@@ -30,9 +23,6 @@ export class UserEntity extends TypeOrmBaseEntity {
 
   @Column()
   @IsString()
-  @Matches(/^[A-Za-z0-9]{6,12}$/, {
-    message: UserErrorMessage.password,
-  })
   password: string;
 
   @CreateDateColumn()
@@ -46,8 +36,6 @@ export class UserEntity extends TypeOrmBaseEntity {
 
   @Column()
   @IsNumber()
-  @Min(1900, { message: UserErrorMessage.birth })
-  @Max(2999, { message: UserErrorMessage.birth })
   birth_year: number;
 
   @Column()
@@ -55,8 +43,6 @@ export class UserEntity extends TypeOrmBaseEntity {
   gender: UserGender;
 
   @Column()
-  @Matches(/^010-([0-9]{4})-([0-9]{4})$/, {
-    message: '전화번호는 010-0000-0000 형식입니다.',
-  })
+  @IsString()
   phone: string;
 }
