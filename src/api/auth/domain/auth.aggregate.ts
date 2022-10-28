@@ -2,7 +2,7 @@ import { BaseAggregate } from 'src/api/common/model/aggregate.base';
 import * as bcrypt from 'bcrypt';
 import { IAuth, IAuthId, IAuthProps, IAuthResponse } from './auth.interface';
 import { CookieOptions } from 'express';
-import { UserRole } from 'src/api/user/domain/user.enum';
+import { roleLevel, UserRole } from 'src/api/user/domain/user.enum';
 
 export class Auth extends BaseAggregate<IAuthId> implements IAuth {
   private constructor(
@@ -36,11 +36,10 @@ export class Auth extends BaseAggregate<IAuthId> implements IAuth {
     return 'access_token';
   }
 
-  static checkPermission(role: UserRole, roles: UserRole[]): boolean {
-    return roles.reduce((prev, curr) => {
-      const now = role === curr;
-      return now ? now : prev;
-    }, false);
+  static checkPermission(role: UserRole, permission: UserRole): boolean {
+    const level = roleLevel[role];
+    const permissionLevel = roleLevel[permission];
+    return level <= permissionLevel;
   }
 
   static get(props: IAuthProps): IAuth {

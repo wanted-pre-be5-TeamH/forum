@@ -41,13 +41,9 @@ export class CreateUserBody implements ICreateUserBody {
   phone: string;
 }
 
-type IUpdateUserBody = Pick<IUserProperty, 'id' | 'role'>;
+type IUpdateUserBody = Pick<IUserProperty, 'role'>;
 
 export class UpdateUserBody implements IUpdateUserBody {
-  @IsNumber()
-  @Type(() => Number)
-  id: number;
-
   @IsEnum(UserRole, { message: UserErrorMessage.role })
   role: UserRole;
 }
