@@ -12,21 +12,22 @@ export class RolesGuard implements CanActivate {
   constructor(private reflector: Reflector) {}
 
   canActivate(context: ExecutionContext): boolean {
-    const requiredRoles = this.reflector.getAllAndOverride<UserRole[]>(
-      ROLES_KEY,
-      [context.getHandler(), context.getClass()],
-    );
+    const permission = this.reflector.getAllAndOverride<UserRole>(ROLES_KEY, [
+      context.getHandler(),
+      context.getClass(),
+    ]);
 
-    if (requiredRoles == undefined) {
+    if (permission == undefined) {
       return true;
     }
+
     const user = context.switchToHttp().getRequest().user as IAuthResponse;
 
     if (user == undefined) {
       throw httpExceptionProvider('403', ExceptionMessage.FBD);
     } // Public인데, 권한을 요구하는 경우 => 설계 오류!
 
-    if (Auth.checkPermission(user.role, requiredRoles)) {
+    if (Auth.checkPermission(user.role, permission)) {
       return true;
     }
     throw httpExceptionProvider('403', ExceptionMessage.FBD);
