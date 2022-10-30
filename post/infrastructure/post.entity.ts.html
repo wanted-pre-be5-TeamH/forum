@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for board/infrastructure/board.mapper.ts</title>
+    <title>Code coverage report for post/infrastructure/post.entity.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">board/infrastructure</a> board.mapper.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">post/infrastructure</a> post.entity.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/17</span>
+                <span class='fraction'>0/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/15</span>
+                <span class='fraction'>0/14</span>
             </div>
         
             
@@ -104,28 +104,15 @@
 <a name='L39'></a><a href='#L39'>39</a>
 <a name='L40'></a><a href='#L40'>40</a>
 <a name='L41'></a><a href='#L41'>41</a>
-<a name='L42'></a><a href='#L42'>42</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -135,56 +122,75 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { Injectable } from '@nestjs/common';</span>
-import { IEntityMapper } from 'src/api/common/interface/mapper.interface';
-<span class="cstat-no" title="statement not covered" >import { Board } from '../domain/board.aggregate';</span>
-import { IBoard } from '../domain/board.interface';
-<span class="cstat-no" title="statement not covered" >import { BoardEntity } from './board.entity';</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { IsInt, IsNumber, IsString } from 'class-validator';</span>
+<span class="cstat-no" title="statement not covered" >import { BoardEntity } from 'src/api/board/infrastructure/board.entity';</span>
+<span class="cstat-no" title="statement not covered" >import { TypeOrmBaseEntity } from 'src/api/common/model/typeorm-entity.base';</span>
+<span class="cstat-no" title="statement not covered" >import { UserEntity } from 'src/api/user/infrastructure/user.entity';</span>
+<span class="cstat-no" title="statement not covered" >import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';</span>
 &nbsp;
-@Injectable()
-export <span class="cstat-no" title="statement not covered" >class <span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >BoardEntityMapper </span>implements IEntityMapper&lt;IBoard, BoardEntity&gt; {</span></span>
-<span class="fstat-no" title="function not covered" >  toAggregate(</span>entity: BoardEntity): IBoard {
-    const {
-      id,
-      created_at,
-      updated_at,
-      title,
-      announcement,
-      read_access,
-      write_access,
-    } = <span class="cstat-no" title="statement not covered" >entity;</span>
-<span class="cstat-no" title="statement not covered" >    return Board.get({</span>
-      id,
-      created_at,
-      updated_at,
-      title,
-      announcement,
-      read_access,
-      write_access,
-    });
-  }
-<span class="fstat-no" title="function not covered" >  toRootEntity(</span>aggregate: IBoard): BoardEntity {
-    const { id, title, announcement, read_access, write_access } = <span class="cstat-no" title="statement not covered" >aggregate;</span>
-    const entity = <span class="cstat-no" title="statement not covered" >new BoardEntity();</span>
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (id != 0) {</span>
-<span class="cstat-no" title="statement not covered" >      entity.id = id;</span>
-    }
-<span class="cstat-no" title="statement not covered" >    entity.title = title;</span>
-<span class="cstat-no" title="statement not covered" >    entity.announcement = announcement;</span>
-<span class="cstat-no" title="statement not covered" >    entity.read_access = read_access;</span>
-<span class="cstat-no" title="statement not covered" >    entity.write_access = write_access;</span>
-<span class="cstat-no" title="statement not covered" >    return entity;</span>
-  }
+export const <span class="cstat-no" title="statement not covered" >PostErrorMessage = {</span>
+  title: '잘못된 제목입니다.',
+  content: '잘못된 내용입니다.',
+  board: '잘못된 게시판 정보입니다.',
+  writer: '잘못된 사용자 정보입니다.',
+};
+&nbsp;
+@Entity({ name: 'posts' })
+export <span class="cstat-no" title="statement not covered" >class <span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >PostEntity </span>extends TypeOrmBaseEntity {</span></span>
+<span class="cstat-no" title="statement not covered" >  @Column()</span>
+  @IsString({ message: PostErrorMessage.title })
+  title: string;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  @Column({ nullable: true })</span>
+  @IsNumber({}, { message: PostErrorMessage.writer })
+  writer_id: number | null;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  @ManyToOne(<span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >UserEntity,</span> { onDelete: 'SET NULL', nullable: true })</span>
+  @JoinColumn({ name: 'writer_id' })
+  writer: UserEntity | null;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  @Column()</span>
+  @IsNumber({}, { message: PostErrorMessage.board })
+  board_id: number;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  @ManyToOne(<span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >BoardEntity,</span> { onDelete: 'CASCADE' })</span>
+  @JoinColumn({ name: 'board_id' })
+  board: BoardEntity;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  @Column({ default: 0 })</span>
+  @IsInt()
+  views: number;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  @Column()</span>
+  @IsString({ message: PostErrorMessage.content })
+  content: string;
 }
 &nbsp;</pre></td></tr></table></pre>
 
