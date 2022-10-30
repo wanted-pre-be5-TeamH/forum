@@ -42,6 +42,12 @@ export class Board extends BaseAggregate<IBoardId> implements IBoard {
     );
   }
 
+  static checkPermission(user: UserRole, board: UserRole): boolean {
+    const userLevel = roleLevel[user];
+    const boardLevel = roleLevel[board];
+    return userLevel <= boardLevel;
+  }
+
   getResponse(): IBoardResponse {
     const { id, title, read_access, write_access } = this;
     return { id, title, read_access, write_access };
@@ -62,14 +68,5 @@ export class Board extends BaseAggregate<IBoardId> implements IBoard {
   setWriteAccess(role: UserRole): void {
     (this as any).write_access = role;
     return;
-  }
-
-  checkPermission(role: UserRole, scope: 'read' | 'write'): boolean {
-    const userLevel = roleLevel[role];
-    const boardLevel =
-      scope === 'read'
-        ? roleLevel[this.read_access]
-        : roleLevel[this.write_access];
-    return userLevel <= boardLevel;
   }
 }

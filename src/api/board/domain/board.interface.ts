@@ -21,7 +21,6 @@ export type IBoardMethod = {
   setReadAccess: (role: UserRole) => void;
   setWriteAccess: (role: UserRole) => void;
   getResponse: () => IBoardResponse;
-  checkPermission: (role: UserRole, scope: 'read' | 'write') => boolean;
 };
 
 export type IBoard = IBoardProperty & IBoardMethod;
